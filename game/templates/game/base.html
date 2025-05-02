@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}Eterosia{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-100">
+
+  <!-- Full-screen parchment background -->
+  <div class="fixed inset-0 bg-[url('{% static "images/parchment_bg.jpg" %}')] bg-cover bg-center filter brightness-75 z-0"></div>
+
+  <!-- Top HUD Bar -->
+  <header class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 py-3 bg-black bg-opacity-60 backdrop-blur-md">
+    <div class="flex items-center space-x-1">
+      <img src="{% static 'images/gem_icon.png' %}" class="w-6 h-6" alt="Runes">
+      {% if request.user.is_authenticated %}
+        <span class="text-yellow-300 font-semibold">{{ request.user.playerprofile.rune_balance }}</span>
+      {% endif %}
+    </div>
+    <div>
+      {% if request.user.is_authenticated %}
+        <img src="{{ request.user.playerprofile.avatar_url }}" alt="Avatar"
+             class="w-10 h-10 rounded-full border-2 border-indigo-500 hover:scale-110 transition"
+             title="{{ request.user.username }} – Level {{ request.user.playerprofile.level }}">
+      {% endif %}
+    </div>
+    <nav class="flex items-center space-x-4 text-gray-300">
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'game:play' %}"        class="hover:text-white">▶️ Play</a>
+        <a href="{% url 'game:leaderboard' %}" class="hover:text-white">🏆</a>
+        <a href="{% url 'game:profile' %}"     class="hover:text-white">👤</a>
+        <a href="{% url 'game:logout' %}"      class="hover:text-white">⏏️ Logout</a>
+      {% else %}
+        <a href="{% url 'game:login' %}"    class="hover:text-white">🔑 Login</a>
+        <a href="{% url 'game:register' %}" class="hover:text-white">📝 Register</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main class="pt-16 pb-12 relative z-10 min-h-screen">
+    {% block content %}{% endblock %}
+  </main>
+
+  {# Allow child templates to override the positional classes #}
+  <footer class="{% block footer_classes %}fixed bottom-0 inset-x-0 bg-opacity-50{% endblock %} text-center py-2 bg-black text-gray-400 text-sm z-10">
+    © 2025 Eterosia · Crafted with 🪄 & ❤️
+  </footer>
+
+  {% block extra_script %}{% endblock %}
+</body>
+</html>

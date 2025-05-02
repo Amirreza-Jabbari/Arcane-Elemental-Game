@@ -1,0 +1,34 @@
+[
+  {
+    "model": "game.element",
+    "pk": 1,
+    "fields": {
+      "name": "Water",
+      "description": "Master the flow of loops and repeated actions through fluid dynamics."
+    }
+  },
+  {
+    "model": "game.element",
+    "pk": 2,
+    "fields": {
+      "name": "Air",
+      "description": "Learn conditional logic and decision-making, as currents shift with your code."
+    }
+  },
+  {
+    "model": "game.element",
+    "pk": 3,
+    "fields": {
+      "name": "Earth",
+      "description": "Harness the power of recursion and structured data to shape the land."
+    }
+  },
+  {
+    "model": "game.element",
+    "pk": 4,
+    "fields": {
+      "name": "Fire",
+      "description": "Control complex data structures and optimization under pressure."
+    }
+  }
+]

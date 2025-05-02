@@ -1,0 +1,57 @@
+[
+  {
+    "model": "game.region",
+    "pk": 1,
+    "fields": {
+      "slug": "water-isles",
+      "name": "Water Isles",
+      "description": "Waterfalls and tides—an ideal place to master loops.",
+      "element": 1,
+      "level_required": 0
+    }
+  },
+  {
+    "model": "game.region",
+    "pk": 2,
+    "fields": {
+      "slug": "sky-spires",
+      "name": "Sky Spires",
+      "description": "Mist‐shrouded heights—perfect for practicing conditionals.",
+      "element": 2,
+      "level_required": 0
+    }
+  },
+  {
+    "model": "game.region",
+    "pk": 3,
+    "fields": {
+      "slug": "crimson-sands",
+      "name": "Crimson Sands",
+      "description": "Rocky dunes, where recursion skills take shape.",
+      "element": 3,
+      "level_required": 0
+    }
+  },
+  {
+    "model": "game.region",
+    "pk": 4,
+    "fields": {
+      "slug": "ember-peaks",
+      "name": "Ember Peaks",
+      "description": "Active volcanoes—your arena for data‐structure mastery.",
+      "element": 4,
+      "level_required": 0
+    }
+  },
+  {
+    "model": "game.region",
+    "pk": 5,
+    "fields": {
+      "slug": "mage-citadel",
+      "name": "Academy Citadel",
+      "description": "The heart of the academy, where the ultimate combined challenges await.",
+      "element": null,
+      "level_required": 2
+    }
+  }
+]

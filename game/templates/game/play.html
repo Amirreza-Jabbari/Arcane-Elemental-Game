@@ -1,0 +1,372 @@
+{% extends "game/base.html" %}
+{% load static %}
+
+{% block title %}Play – Eterosia{% endblock %}
+
+{# Drop footer into the normal flow (so it sits below the History Drawer) #}
+{% block footer_classes %}relative{% endblock %}
+
+
+{% block content %}
+
+
+<main class="pt-16 pb-6 relative z-40">
+
+  <!-- Hero Section: Enter Realm -->
+  <section class="relative h-72 flex items-center justify-center">
+    <button id="enter-realm"
+            class="px-12 py-4 bg-gradient-to-tr from-indigo-600 to-purple-600 
+                   text-white text-2xl font-bold rounded-full shadow-2xl
+                   hover:scale-105 transition transform z-10">
+      Enter the Realm ▶
+    </button>
+    <div id="world-map-overlay"
+         class="absolute inset-0 bg-black bg-opacity-75 flex items-start justify-center hidden">
+      <img src="{% static 'images/game_map.png' %}" alt="Map of Eterosia"
+           class="mt-12 w-4/5 rounded-lg shadow-2xl border-4 border-indigo-700">
+    </div>
+  </section>
+
+  <div class="flex flex-col lg:flex-row gap-6 px-6 mt-8">
+
+    <!-- Left Sidebar: Regions & Active Trials -->
+    <aside class="lg:w-1/4 space-y-6">
+
+      <!-- Region Selector -->
+      <div class="bg-black bg-opacity-50 rounded-xl p-4 backdrop-blur-sm">
+        <h2 class="text-xl text-white mb-2 font-uncial">Select Region</h2>
+        <ul class="space-y-2">
+          {% for reg in region_data %}
+          <li>
+            <button data-region="{{ reg.slug }}"
+                    class="w-full flex items-center justify-between px-3 py-2 rounded-lg
+                           transition
+                           {% if reg.slug == selected_region.slug %}
+                             bg-indigo-700 text-white
+                           {% elif reg.unlocked %}
+                             bg-gray-800 text-gray-200 hover:bg-gray-700
+                           {% else %}
+                             bg-gray-600 text-gray-400 cursor-not-allowed
+                           {% endif %}">
+              <span>{{ reg.name }}</span>
+              {% if not reg.unlocked %}<span>🔒</span>{% endif %}
+            </button>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Active Trials -->
+      <div class="bg-black bg-opacity-50 rounded-xl p-4 backdrop-blur-sm">
+        <h2 class="text-xl text-white mb-2 font-uncial">Active Trials</h2>
+        <ul id="trials-list" class="space-y-4 max-h-64 overflow-y-auto">
+          {% for t in active_trials %}
+          <li>
+            <div class="trial-card flex items-center justify-between px-3 py-2 rounded-lg
+                        bg-gray-800 text-gray-100 hover:bg-gray-700 cursor-pointer transition"
+                 data-trial-id="{{ t.id }}"
+                 data-description="{{ t.description|escapejs }}">
+              <span>{{ t.name }}</span>
+              {% if t.best_score %}
+                <span class="text-yellow-400 text-sm font-semibold">★ {{ t.best_score }}</span>
+              {% endif %}
+            </div>
+            {% if t.has_hint %}
+              {% if t.hint_purchased %}
+                <div class="mt-2 p-2 bg-yellow-100 text-gray-800 rounded">
+                  <strong>Hint:</strong> {{ t.hint_text }}
+                </div>
+              {% else %}
+              <button class="mt-2 px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition"
+              onclick="buyHint({{ t.id }}, this)">
+                💡 Hint (30<img src="{% static 'images/gem_icon.png' %}" class="w-6 h-6 inline ml-1 -mt-1" alt="Runes">)
+              </button>
+              {% endif %}
+            {% endif %}
+          </li>
+          {% empty %}
+          <li class="text-gray-400">You have completed all trials here.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Center: Objectives, Editor & Stats -->
+    <section class="lg:w-2/4 space-y-6">
+
+      <!-- Objectives List -->
+      <div class="bg-black bg-opacity-50 rounded-xl p-4 backdrop-blur-sm">
+        <h2 class="text-xl text-white mb-2 font-uncial">Current Objectives</h2>
+        <ul id="objective-list"
+            class="list-disc list-inside text-gray-200 space-y-1 min-h-[4rem]">
+          <li class="opacity-50">Select an active trial</li>
+        </ul>
+      </div>
+
+      <!-- Code Editor + Hint Panel -->
+      <div class="relative bg-gray-900 rounded-xl p-4">
+
+        <textarea id="script-editor"
+                  class="w-full h-48 bg-gray-800 text-gray-200 font-mono text-sm p-3 rounded-lg 
+                         border-2 border-gray-700 focus:outline-none focus:border-indigo-500 transition"
+                  placeholder="Write your magic code here..."></textarea>
+
+        <button id="run-button"
+                class="absolute top-4 right-4 bg-indigo-600 hover:bg-indigo-500 text-white 
+                       px-4 py-2 rounded-full shadow-lg transform hover:scale-105 transition"
+                aria-label="Run ▶">
+          Run ▶
+        </button>
+
+        <!-- HINT PANEL -->
+        <div id="hint-panel"
+             class="hidden mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-900 rounded">
+          <strong>Hint:</strong>
+          <p id="hint-text" class="mt-2"></p>
+        </div>
+
+      </div>
+
+      <!-- Stats Panel -->
+      <div id="stats-panel"
+           class="hidden bg-black bg-opacity-50 rounded-xl p-4 grid grid-cols-2 gap-4 text-gray-200 backdrop-blur-sm">
+        <div>🏅 Score: <span id="stat-score">—</span></div>
+        <div>⏱️ Time: <span id="stat-time">— ms</span></div>
+        <div>🔮 Mana: <span id="stat-mana">—</span></div>
+        <div>🌟 XP Earned: <span id="stat-xp">—</span></div>
+        <div>🪙 Runes Earned: <span id="stat-runes">—</span></div>
+      </div>
+
+    </section>
+
+    <!-- Right Sidebar: NPCs -->
+    <aside class="lg:w-1/4 space-y-6">
+      <div class="bg-black bg-opacity-50 rounded-xl p-4 backdrop-blur-sm">
+        <h2 class="text-xl text-white mb-2 font-uncial">NPCs in {{ selected_region.name }}</h2>
+        <div class="space-y-2">
+          {% for npc in npcs %}
+          <button class="w-full flex items-center px-3 py-2 bg-gray-800 text-gray-100 
+                         hover:bg-gray-700 rounded-lg transition"
+                  data-npc-id="{{ npc.id }}">
+            {{ npc.name }} — {{ npc.role }}
+          </button>
+          {% empty %}
+          <p class="text-gray-400">No NPCs here.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- NPC Dialogue: Glassmorphic Slide‐In Panel -->
+  <div id="dialogue-panel"
+       class="fixed top-0 right-0 h-full w-80 p-6 transform translate-x-full transition-transform duration-300
+              bg-white bg-opacity-20 backdrop-blur-xl
+              border-l border-white border-opacity-30
+              rounded-l-3xl
+              text-black
+              z-60">
+    
+    <div class="mt-12 space-y-4">
+      <h3 id="dlg-npc-name" class="text-2xl font-bold font-uncial"></h3>
+      <p id="dlg-text" class="leading-relaxed"></p>
+      <button id="dlg-next"
+              class="inline-block bg-white bg-opacity-30 hover:bg-opacity-50 text-black
+                     px-4 py-2 rounded-full backdrop-blur-md transition">
+        Next ▶
+      </button>
+      <button id="dlg-close"
+              class="inline-block bg-white bg-opacity-30 hover:bg-opacity-50 text-black
+                     px-4 py-2 rounded-full backdrop-blur-md transition">
+      ✖️
+      </button>
+    </div>
+  </div>
+
+  <!-- Completed History Drawer -->
+  <section class="fixed bottom-0 left-0 right-0 z-50">
+    <button id="history-toggle"
+            class="w-full bg-indigo-800 text-white py-2 hover:bg-indigo-700 transition">
+      📜 Show Completed Trials History
+    </button>
+    <div id="history-drawer"
+         class="max-h-0 overflow-hidden bg-black bg-opacity-60 transition-all duration-300">
+      <div class="p-4 overflow-x-auto">
+        <table class="min-w-full text-gray-200">
+          <thead>
+            <tr class="bg-gray-800">
+              <th class="px-2 py-1 text-left">Trial</th>
+              <th class="px-2 py-1 text-left">Your Code</th>
+              <th class="px-2 py-1">Score</th>
+              <th class="px-2 py-1">Time</th>
+              <th class="px-2 py-1">Mana</th>
+              <th class="px-2 py-1">XP</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for run in completed_runs %}
+            <tr class="border-t border-gray-700">
+              <td class="px-2 py-1">{{ run.trial.name }}</td>
+              <td class="px-2 py-1 font-mono break-words">{{ run.script }}</td>
+              <td class="px-2 py-1 text-yellow-300">{{ run.score }}</td>
+              <td class="px-2 py-1">{{ run.time_ms }} ms</td>
+              <td class="px-2 py-1">{{ run.mana_used }}</td>
+              <td class="px-2 py-1">{{ run.xp_awarded }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  {{ npcs|json_script:"npcs-data" }}
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 1) Toggle world map overlay
+  document.getElementById('enter-realm').onclick = () => {
+    document.getElementById('world-map-overlay').classList.toggle('hidden');
+  };
+
+  // 2) Change region
+  document.querySelectorAll('[data-region]').forEach(btn => {
+    if (!btn.classList.contains('cursor-not-allowed')) {
+      btn.onclick = () => {
+        const q = new URLSearchParams(location.search);
+        q.set('region', btn.dataset.region);
+        location.search = q;
+      };
+    }
+  });
+
+  // 3) NPC dialogue logic
+  const panel   = document.getElementById('dialogue-panel');
+  const nameEl  = document.getElementById('dlg-npc-name');
+  const textEl  = document.getElementById('dlg-text');
+  let   dlgIdx  = 0, dlgSeq = [];
+  const NPCS    = JSON.parse(document.getElementById('npcs-data').textContent);
+
+  document.querySelectorAll('[data-npc-id]').forEach(btn => {
+    btn.onclick = () => {
+      const npc = NPCS.find(n => n.id == btn.dataset.npcId);
+      dlgSeq = npc.dialogues; dlgIdx = 0;
+      nameEl.textContent = npc.name;
+      textEl.textContent = dlgSeq[0] || "";
+      panel.classList.remove('translate-x-full');
+    };
+  });
+  document.getElementById('dlg-next').onclick = () => {
+    dlgIdx++;
+    if (dlgIdx < dlgSeq.length) textEl.textContent = dlgSeq[dlgIdx];
+    else panel.classList.add('translate-x-full');
+  };
+  document.getElementById('dlg-close').onclick = () => {
+    panel.classList.add('translate-x-full');
+  };
+
+  // 4) Trial card selection & objectives rendering and hint panel logic
+  let selectedId = null;
+  document.querySelectorAll('.trial-card').forEach(card => {
+    card.onclick = () => {
+      document.querySelectorAll('.trial-card').forEach(x => x.classList.remove('ring','ring-indigo-400'));
+      card.classList.add('ring','ring-indigo-400');
+
+      // objectives...
+      selectedId = card.dataset.trialId;
+      const steps = card.dataset.description
+                        .split('.').filter(s=>s.trim()).map(s=>s.trim()+'.');
+      const list = document.getElementById('objective-list');
+      list.innerHTML = '';
+      steps.forEach(s => {
+        const li = document.createElement('li'); li.textContent = s;
+        list.appendChild(li);
+      });
+      document.getElementById('stats-panel').classList.add('hidden');
+
+      // HINT PANEL: if already purchased, show immediately
+      const hintPanel = document.getElementById('hint-panel');
+      const hintText  = document.getElementById('hint-text');
+      if (card.dataset.hintPurchased === '1') {
+        hintText.textContent = card.dataset.hint;
+        hintPanel.classList.remove('hidden');
+      } else {
+        hintPanel.classList.add('hidden');
+      }
+    };
+  });
+
+  // 5) Run code via AJAX and update stats/XP/ rune reward
+  document.getElementById('run-button').onclick = async () => {
+    if (!selectedId) { alert('Please select an active trial first.'); return; }
+    const script = document.getElementById('script-editor').value;
+    const form   = new FormData();
+    form.append('trial_id', selectedId);
+    form.append('script', script);
+    form.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+    const btn = document.getElementById('run-button');
+    btn.disabled = true; btn.textContent = 'Running…';
+    try {
+      const res  = await fetch("{% url 'game:run_trial' %}", { method:'POST', body: form });
+      if (!res.ok) throw '';
+      const data = await res.json();
+      document.getElementById('stat-score').textContent = data.score;
+      document.getElementById('stat-time') .textContent = data.time_ms + ' ms';
+      document.getElementById('stat-mana') .textContent = data.mana_used;
+      document.getElementById('stat-xp')   .textContent = data.xp_awarded;
+      document.getElementById('stat-runes')   .textContent = data.rune_reward;
+      document.getElementById('stats-panel').classList.remove('hidden');
+      if (data.tutorial_completed) location.reload();
+    } catch {
+      alert('Error executing your script.');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Run ▶';
+    }
+  };
+
+  // 6) Toggle history drawer
+  const histBtn = document.getElementById('history-toggle');
+  const drawer  = document.getElementById('history-drawer');
+  histBtn.onclick = () => {
+    drawer.classList.toggle('max-h-0');
+    drawer.classList.toggle('max-h-60');
+  };
+
+  // 7) Buy Hint
+  window.buyHint = async (trialId, btn) => {
+    btn.disabled = true;
+    const form = new FormData();
+    form.append('trial_id', trialId);
+    form.append('csrfmiddlewaretoken','{{ csrf_token }}');
+    const res = await fetch("{% url 'game:buy_hint' %}", { method:'POST', body: form });
+    const json = await res.json();
+    if (!res.ok) {
+      alert(json.error || 'Purchase failed');
+      btn.disabled = false;
+      return;
+    }
+    // replace the single-button UI…
+    btn.remove();
+    const card = document.querySelector(`.trial-card[data-trial-id="${trialId}"]`);
+    card.dataset.hintPurchased = '1';
+    card.dataset.hint = json.hint;
+
+    // show in sidebar below card
+    const sidebarHint = document.createElement('div');
+    sidebarHint.className = 'mt-2 p-2 bg-yellow-100 text-gray-800 rounded';
+    sidebarHint.innerHTML = `<strong>Hint:</strong> ${json.hint}`;
+    card.parentNode.appendChild(sidebarHint);
+
+    // show in editor hint‐panel
+    document.getElementById('hint-text').textContent = json.hint;
+    document.getElementById('hint-panel').classList.remove('hidden');
+
+    // update HUD runes
+    document.getElementById('hud-runes').textContent = '🪙 ' + json.new_runes;
+  };
+});
+</script>
+{% endblock %}

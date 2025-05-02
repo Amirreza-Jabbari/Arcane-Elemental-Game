@@ -1,0 +1,39 @@
+{% extends "game/base.html" %}
+{% block title %}Quest Details – Eterosia{% endblock %}
+{% block content %}
+<div class="container mx-auto px-6 py-8">
+  <h1 class="text-3xl font-cinzel mb-4">{{ player_quest.quest.title }}</h1>
+  <p class="text-gray-200 mb-6">{{ player_quest.quest.description }}</p>
+  <h2 class="text-2xl text-white mb-2">Objectives</h2>
+  <ul class="list-disc list-inside space-y-2 text-gray-300">
+    {% for obj in objectives %}
+      {% comment %}
+        An objective is considered “done” once current_objective (a 0-based index)
+        has advanced past it.
+        E.g., if current_objective = 2, objectives with order 0 and 1 are complete.
+      {% endcomment %}
+      {% if forloop.counter0 < player_quest.current_objective %}
+        <li class="flex items-center">
+          <span class="mr-2 text-green-400">✔️</span> {{ obj.description }}
+        </li>
+      {% else %}
+        <li>{{ obj.description }}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  {% if player_quest.status != 'completed' %}
+    <form method="post" class="mt-6">
+      {% csrf_token %}
+      <button
+        type="submit"
+        formaction="{% url 'game:quest_advance' player_quest.quest.id %}"
+        class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2 rounded-full transition">
+        Advance ▶
+      </button>
+    </form>
+  {% else %}
+    <p class="mt-6 text-green-300 font-semibold">🏆 Quest Completed!</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+[
+  {
+    "model": "game.quest",
+    "pk": 1,
+    "fields": {
+      "title": "The Ring of Water’s Beginning",
+      "description": "In this stage, craft fundamental loops to extinguish multiple fires, relocate moving bridges, and build barriers.",
+      "xp_reward": 120,
+      "runes_reward": 25,
+      "next_quests": [2]
+    }
+  },
+  {
+    "model": "game.quest",
+    "pk": 2,
+    "fields": {
+      "title": "Test of Conditionals & Decision",
+      "description": "Use conditional statements to open dams only when needed, clear mist correctly, and unlock secret chests.",
+      "xp_reward": 150,
+      "runes_reward": 30,
+      "next_quests": [3]
+    }
+  },
+  {
+    "model": "game.quest",
+    "pk": 3,
+    "fields": {
+      "title": "Chains of Recursion",
+      "description": "Employ recursive functions to chain spells together and defeat moving foes with rapid-fire attacks.",
+      "xp_reward": 200,
+      "runes_reward": 40,
+      "next_quests": [4]
+    }
+  },
+  {
+    "model": "game.quest",
+    "pk": 4,
+    "fields": {
+      "title": "Data Structures & Composite Algorithms",
+      "description": "Leverage arrays and dictionaries to generate advanced rune combinations and solve intricate puzzles.",
+      "xp_reward": 250,
+      "runes_reward": 50,
+      "next_quests": [5]
+    }
+  },
+  {
+    "model": "game.quest",
+    "pk": 5,
+    "fields": {
+      "title": "Final Battle with the Chaos Dragon",
+      "description": "Combine all learned skills to write the ultimate combat algorithm and vanquish the Chaos Dragon.",
+      "xp_reward": 500,
+      "runes_reward": 100,
+      "next_quests": []
+    }
+  }
+]

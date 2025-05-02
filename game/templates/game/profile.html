@@ -1,0 +1,18 @@
+{% extends "game/base.html" %}
+{% block title %}Profile – Eterosia{% endblock %}
+{% block content %}
+<div class="container mx-auto px-6 py-8">
+  <h1 class="text-3xl font-cinzel text-center mb-6">👤 Your Skills</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for sk in user_skills %}
+    <div class="bg-black bg-opacity-50 rounded-xl p-4 backdrop-blur-sm">
+      <h2 class="text-xl text-white">{{ sk.name }}</h2>
+      <div class="w-full bg-gray-700 h-3 rounded-full mt-2 overflow-hidden">
+        <div class="bg-indigo-500 h-3" style="width:{{ sk.progress_percent }}%"></div>
+      </div>
+      <p class="text-gray-300 mt-1">Level {{ sk.level }} ({{ sk.progress_percent }}%)</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

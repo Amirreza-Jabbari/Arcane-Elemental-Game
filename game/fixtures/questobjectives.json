@@ -1,0 +1,146 @@
+[
+  {
+    "model": "game.questobjective",
+    "pk": 1,
+    "fields": {
+      "quest": 1,
+      "description": "Use a loop to extinguish 5 fires in the Water Isles",
+      "order": 1
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 2,
+    "fields": {
+      "quest": 1,
+      "description": "Configure a loop to move 3 floating bridges in the Sky Spires",
+      "order": 2
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 3,
+    "fields": {
+      "quest": 1,
+      "description": "Build 4 protective walls using a loop in the Crimson Sands",
+      "order": 3
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 4,
+    "fields": {
+      "quest": 1,
+      "description": "Create 3 consecutive explosions with a loop to open the Ember Peaks gate",
+      "order": 4
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 5,
+    "fields": {
+      "quest": 2,
+      "description": "Write a condition: if temperature > 50, block the water flow",
+      "order": 1
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 6,
+    "fields": {
+      "quest": 2,
+      "description": "Use conditional logic to clear the mist only when visibility < 30%",
+      "order": 2
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 7,
+    "fields": {
+      "quest": 2,
+      "description": "Composite condition: if lanterns ≥ 2 and time < 60s, unlock the secret chest",
+      "order": 3
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 8,
+    "fields": {
+      "quest": 3,
+      "description": "Define a recursive function for a chain of 5 water spells",
+      "order": 1
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 9,
+    "fields": {
+      "quest": 3,
+      "description": "Use recursion to create a sequence of 7 fire bursts",
+      "order": 2
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 10,
+    "fields": {
+      "quest": 3,
+      "description": "Combine recursion and loops to generate a dual explosive wave",
+      "order": 3
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 11,
+    "fields": {
+      "quest": 4,
+      "description": "Create an array of runes and sort them by element priority",
+      "order": 1
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 12,
+    "fields": {
+      "quest": 4,
+      "description": "Build a dictionary mapping each element to its magic intensity",
+      "order": 2
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 13,
+    "fields": {
+      "quest": 4,
+      "description": "Composite algorithm: generate all pairwise sequences of runes",
+      "order": 3
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 14,
+    "fields": {
+      "quest": 5,
+      "description": "Implement nested loops to attack the Chaos Dragon’s head",
+      "order": 1
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 15,
+    "fields": {
+      "quest": 5,
+      "description": "Combine recursion and data structures: bulk-load final spells",
+      "order": 2
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 16,
+    "fields": {
+      "quest": 5,
+      "description": "Write an optimized algorithm to minimize mana consumption",
+      "order": 3
+    }
+  }
+]

@@ -1,0 +1,66 @@
+{% extends "game/base.html" %}
+
+{% block title %}Register – Eterosia{% endblock %}
+
+{% block content %}
+<div class="flex items-center justify-center min-h-screen px-4">
+  <form method="post" action="{% url 'game:register' %}"
+        class="bg-black bg-opacity-50 backdrop-blur-sm rounded-xl p-8 w-full max-w-md space-y-4 z-10">
+    {% csrf_token %}
+    <h1 class="text-2xl font-cinzel text-center text-white">📝 Register</h1>
+
+    {# non-field errors (e.g. “passwords don’t match”) #}
+    {% if form.non_field_errors %}
+      <div class="bg-red-800 text-red-200 p-2 rounded">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
+
+    {# username field #}
+    <div>
+      {{ form.username.label_tag }}
+      {{ form.username }}
+      {% if form.username.errors %}
+        <p class="text-red-400 text-sm mt-1">{{ form.username.errors.0 }}</p>
+      {% endif %}
+    </div>
+
+    {# email field #}
+    <div>
+      {{ form.email.label_tag }}
+      {{ form.email }}
+      {% if form.email.errors %}
+        <p class="text-red-400 text-sm mt-1">{{ form.email.errors.0 }}</p>
+      {% endif %}
+    </div>
+
+    {# password1 #}
+    <div>
+      {{ form.password1.label_tag }}
+      {{ form.password1 }}
+      {% if form.password1.errors %}
+        <p class="text-red-400 text-sm mt-1">{{ form.password1.errors.0 }}</p>
+      {% endif %}
+    </div>
+
+    {# password2 #}
+    <div>
+      {{ form.password2.label_tag }}
+      {{ form.password2 }}
+      {% if form.password2.errors %}
+        <p class="text-red-400 text-sm mt-1">{{ form.password2.errors.0 }}</p>
+      {% endif %}
+    </div>
+
+    <button type="submit"
+            class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded-full">
+      Create Account
+    </button>
+
+    <p class="text-gray-300 text-center">
+      Already have an account?
+      <a href="{% url 'game:login' %}" class="text-indigo-300 hover:text-indigo-100">Login</a>
+    </p>
+  </form>
+</div>
+{% endblock %}

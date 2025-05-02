@@ -1,0 +1,38 @@
+[
+  {
+    "model": "game.questobjective",
+    "pk": 1,
+    "fields": {
+      "quest": 1,
+      "description": "Extinguish 5 candles using loops",
+      "order": 1
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 2,
+    "fields": {
+      "quest": 1,
+      "description": "Navigate through the mist with simple conditionals",
+      "order": 2
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 3,
+    "fields": {
+      "quest": 1,
+      "description": "Create recursive functions to repeat effects",
+      "order": 3
+    }
+  },
+  {
+    "model": "game.questobjective",
+    "pk": 4,
+    "fields": {
+      "quest": 1,
+      "description": "Unlock the gates using dictionaries",
+      "order": 4
+    }
+  }
+]

@@ -1,0 +1,30 @@
+{% extends "game/base.html" %}
+{% block title %}Leaderboard – Eterosia{% endblock %}
+{% block content %}
+<div class="container mx-auto px-6 py-8 space-y-6">
+  <h1 class="text-3xl font-cinzel text-center">🏆 Leaderboard</h1>
+  {% for el, runs in leaderboards.items %}
+  <section class="bg-black bg-opacity-50 rounded-xl p-4 backdrop-blur-sm">
+    <h2 class="text-2xl text-white mb-2">{{ el }}</h2>
+    <table class="min-w-full text-gray-200">
+      <thead>
+        <tr class="bg-gray-800">
+          <th class="px-2 py-1 text-left">Player</th>
+          <th class="px-2 py-1">Score</th>
+          <th class="px-2 py-1">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for run in runs %}
+        <tr class="border-t border-gray-700">
+          <td class="px-2 py-1">{{ run.user.username }}</td>
+          <td class="px-2 py-1 text-yellow-300">{{ run.score }}</td>
+          <td class="px-2 py-1">{{ run.time_ms }} ms</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endfor %}
+</div>
+{% endblock %}

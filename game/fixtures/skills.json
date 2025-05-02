@@ -1,0 +1,110 @@
+[
+  {
+    "model": "game.skill",
+    "pk": 1,
+    "fields": {
+      "element": 1,
+      "name": "Loopcasting",
+      "description": "Using loops to repeat water effects."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 2,
+    "fields": {
+      "element": 1,
+      "name": "Flow Control",
+      "description": "Directing the water’s flow with conditional logic."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 3,
+    "fields": {
+      "element": 1,
+      "name": "Recursive Cascade",
+      "description": "Creating cascading waterfalls with recursive functions."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 4,
+    "fields": {
+      "element": 2,
+      "name": "Gale Sort",
+      "description": "Sorting floating platforms using bubble sort."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 5,
+    "fields": {
+      "element": 2,
+      "name": "Breeze Search",
+      "description": "Finding wind tunnels using binary search."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 6,
+    "fields": {
+      "element": 2,
+      "name": "Optimized Currents",
+      "description": "Optimizing flight paths with greedy algorithms."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 7,
+    "fields": {
+      "element": 3,
+      "name": "Array Foundations",
+      "description": "Storing stone positions in arrays."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 8,
+    "fields": {
+      "element": 3,
+      "name": "Map Masonry",
+      "description": "Using dictionaries to map switches."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 9,
+    "fields": {
+      "element": 3,
+      "name": "Tree of Roots",
+      "description": "Traversing tree networks with recursion."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 10,
+    "fields": {
+      "element": 4,
+      "name": "Inferno Recursion",
+      "description": "Creating fiery chains with recursive calls."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 11,
+    "fields": {
+      "element": 4,
+      "name": "Dynamic Embers",
+      "description": "Managing fire resources with dynamic programming."
+    }
+  },
+  {
+    "model": "game.skill",
+    "pk": 12,
+    "fields": {
+      "element": 4,
+      "name": "Parallel Sparks",
+      "description": "Running loops in parallel for simultaneous explosions."
+    }
+  }
+]

@@ -1,0 +1,27 @@
+{% extends "game/base.html" %}
+{% block title %}Login – Eterosia{% endblock %}
+{% block content %}
+<div class="flex items-center justify-center min-h-screen px-4">
+  <form method="post" class="bg-black bg-opacity-50 backdrop-blur-sm rounded-xl p-8 w-full max-w-md space-y-4">
+    {% csrf_token %}
+    <h1 class="text-2xl font-cinzel text-center text-white">🔑 Login</h1>
+    {{ form.non_field_errors }}
+    <div>
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </div>
+    <div>
+      {{ form.password.label_tag }}
+      {{ form.password }}
+    </div>
+    <button type="submit"
+            class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded-full">
+      Sign In
+    </button>
+    <p class="text-gray-300 text-center">
+      Don’t have an account?
+      <a href="{% url 'game:register' %}" class="text-indigo-300 hover:text-indigo-100">Register</a>
+    </p>
+  </form>
+</div>
+{% endblock %}

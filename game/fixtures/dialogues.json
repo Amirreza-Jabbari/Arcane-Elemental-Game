@@ -1,0 +1,92 @@
+[
+  {
+    "model": "game.dialogue",
+    "pk": 1,
+    "fields": {
+      "npc": 1,
+      "order": 1,
+      "text": "Greetings, fresh apprentice! I am Maris, guardian of the magical springs."
+    }
+  },
+  {
+    "model": "game.dialogue",
+    "pk": 2,
+    "fields": {
+      "npc": 1,
+      "order": 2,
+      "text": "To succeed, you must master the power of water in the trials ahead."
+    }
+  },
+  {
+    "model": "game.dialogue",
+    "pk": 3,
+    "fields": {
+      "npc": 2,
+      "order": 1,
+      "text": "The wind will whisper the secret of life into your ear—listen closely."
+    }
+  },
+  {
+    "model": "game.dialogue",
+    "pk": 4,
+    "fields": {
+      "npc": 2,
+      "order": 2,
+      "text": "By learning the art of flight, you shall ascend to the sky spires."
+    }
+  },
+  {
+    "model": "game.dialogue",
+    "pk": 5,
+    "fields": {
+      "npc": 3,
+      "order": 1,
+      "text": "Earth is the root of every bloom; come with me and let us build bridges."
+    }
+  },
+  {
+    "model": "game.dialogue",
+    "pk": 6,
+    "fields": {
+      "npc": 3,
+      "order": 2,
+      "text": "Challenges are like mountains—but you can stand firm as a peak."
+    }
+  },
+  {
+    "model": "game.dialogue",
+    "pk": 7,
+    "fields": {
+      "npc": 4,
+      "order": 1,
+      "text": "Fire is both power and destruction, and wielding it is an art."
+    }
+  },
+  {
+    "model": "game.dialogue",
+    "pk": 8,
+    "fields": {
+      "npc": 4,
+      "order": 2,
+      "text": "For the true trial, you must surrender your heart to the flame—are you ready?"
+    }
+  },
+  {
+    "model": "game.dialogue",
+    "pk": 9,
+    "fields": {
+      "npc": 5,
+      "order": 1,
+      "text": "Welcome to the Academy Citadel. Your ultimate mission is to restore the balance of the elements."
+    }
+  },
+  {
+    "model": "game.dialogue",
+    "pk": 10,
+    "fields": {
+      "npc": 5,
+      "order": 2,
+      "text": "Once all trials are complete, you will uncover a great truth."
+    }
+  }
+]

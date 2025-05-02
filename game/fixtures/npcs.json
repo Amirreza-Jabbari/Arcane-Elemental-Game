@@ -1,0 +1,53 @@
+[
+    {
+      "model": "game.npc",
+      "pk": 1,
+      "fields": {
+        "name": "Maris, Spirit of the Spring",
+        "region": 1,
+        "role": "Guardian",
+        "description": "A playful water spirit guarding the hidden springs."
+      }
+    },
+    {
+      "model": "game.npc",
+      "pk": 2,
+      "fields": {
+        "name": "Aero the Wanderer",
+        "region": 2,
+        "role": "Sage",
+        "description": "An ancient scholar who knows the secrets of the winds."
+      }
+    },
+    {
+      "model": "game.npc",
+      "pk": 3,
+      "fields": {
+        "name": "Terra, Stoneforged",
+        "region": 3,
+        "role": "Warrior",
+        "description": "A stoic guardian whose strength comes from the earth itself."
+      }
+    },
+    {
+      "model": "game.npc",
+      "pk": 4,
+      "fields": {
+        "name": "Ignis, Flamecaller",
+        "region": 4,
+        "role": "Merchant",
+        "description": "Trades rare ember crystals and tales of volcanic fury."
+      }
+    },
+    {
+      "model": "game.npc",
+      "pk": 5,
+      "fields": {
+        "name": "Headmaster Elyon",
+        "region": 5,
+        "role": "Guide",
+        "description": "Oversees the Mage Citadel and the ultimate trials."
+      }
+    }
+  ]
+  

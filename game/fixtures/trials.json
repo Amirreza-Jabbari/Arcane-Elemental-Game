@@ -1,0 +1,552 @@
+[
+  {
+    "model": "game.trial",
+    "pk": 1,
+    "fields": {
+      "name": "Tutorial – Loops",
+      "description": "At the Mage Citadel: Write a loop to extinguish 5 candles on the Water Isles.",
+      "region": 5,
+      "element_required": 1,
+      "level_required": 0
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 2,
+    "fields": {
+      "name": "Tutorial – Conditionals",
+      "description": "At the Mage Citadel: Use if/else to navigate the mist in the Sky Spires.",
+      "region": 5,
+      "element_required": 2,
+      "level_required": 0
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 3,
+    "fields": {
+      "name": "Tutorial – Recursion",
+      "description": "At the Mage Citadel: Create recursive functions to conquer the Crimson Sands.",
+      "region": 5,
+      "element_required": 3,
+      "level_required": 0
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 4,
+    "fields": {
+      "name": "Tutorial – Data Structures",
+      "description": "At the Mage Citadel: Store lock data in a dictionary and unlock them.",
+      "region": 5,
+      "element_required": 4,
+      "level_required": 0
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 5,
+    "fields": {
+      "name": "Loop the Fires",
+      "description": "Build a loop to extinguish scattered fires in the Water Isles.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 1
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 6,
+    "fields": {
+      "name": "Rainmaker",
+      "description": "Write a function that summons rain 3 times, increasing its intensity each time.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 1
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 7,
+    "fields": {
+      "name": "Filter the Debris",
+      "description": "From an array of streams, filter only those with volume > threshold.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 2
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 8,
+    "fields": {
+      "name": "Wave Pattern",
+      "description": "Create nested loops to generate alternating waves of varying heights.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 2
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 9,
+    "fields": {
+      "name": "Matrix Flood",
+      "description": "Implement a recursive flood-fill on a height matrix to simulate a flood.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 3
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 10,
+    "fields": {
+      "name": "Rain Collector",
+      "description": "Build a dictionary that counts rainfall occurrences in each map section.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 3
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 11,
+    "fields": {
+      "name": "Water Sort",
+      "description": "Sort an array of water volumes from smallest to largest.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 4
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 12,
+    "fields": {
+      "name": "Stream Merge",
+      "description": "Merge two sorted lists of water currents into one sorted list.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 4
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 13,
+    "fields": {
+      "name": "Path Finder",
+      "description": "Use BFS to find the shortest path through the network of water channels.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 5
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 14,
+    "fields": {
+      "name": "Loopcasting",
+      "description": "Create a loop that combines multiple water elements and casts them sequentially.",
+      "region": 1,
+      "element_required": 1,
+      "level_required": 5
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 15,
+    "fields": {
+      "name": "Gale Launch",
+      "description": "Write a loop to launch 4 floating objects into the air.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 1
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 16,
+    "fields": {
+      "name": "Conditional Winds",
+      "description": "If wind > threshold, disperse clouds; otherwise, create a storm.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 1
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 17,
+    "fields": {
+      "name": "Wind Array",
+      "description": "Store an array of wind speeds and find its maximum value.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 2
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 18,
+    "fields": {
+      "name": "Nested Gusts",
+      "description": "Build nested loops to summon multiple gusts of varying strength.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 2
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 19,
+    "fields": {
+      "name": "Recursive Soar",
+      "description": "Write a recursive function to lift an object to a specified height.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 3
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 20,
+    "fields": {
+      "name": "Wind Sort",
+      "description": "Sort a list of wind pressures using a sorting algorithm.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 3
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 21,
+    "fields": {
+      "name": "Flow Map",
+      "description": "Use BFS to chart the wind path from point A to B.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 4
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 22,
+    "fields": {
+      "name": "Gale Sort",
+      "description": "Implement quicksort on wind intensity readings.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 4
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 23,
+    "fields": {
+      "name": "Stream Merge Air",
+      "description": "Merge two sorted lists of wind records and keep the result sorted.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 5
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 24,
+    "fields": {
+      "name": "Air Matrix",
+      "description": "Flood-fill a 2D matrix of wind currents.",
+      "region": 2,
+      "element_required": 2,
+      "level_required": 5
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 25,
+    "fields": {
+      "name": "Sand Spikes",
+      "description": "Use a simple loop to erect columns of earth.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 1
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 26,
+    "fields": {
+      "name": "Conditional Quarry",
+      "description": "If depth > threshold, dig a trench; otherwise, build a mound.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 1
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 27,
+    "fields": {
+      "name": "Array Foundations",
+      "description": "Build an array of stone blocks and record their sizes.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 2
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 28,
+    "fields": {
+      "name": "Nested Mounds",
+      "description": "Create nested loops to build multiple mounds.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 2
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 29,
+    "fields": {
+      "name": "Recursive Pillars",
+      "description": "Write a recursive function to erect earth pillars of varying heights.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 3
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 30,
+    "fields": {
+      "name": "Sand Sort",
+      "description": "Implement merge sort on grains of sand.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 3
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 31,
+    "fields": {
+      "name": "Path in Dunes",
+      "description": "Find the shortest path through sand dunes using BFS.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 4
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 32,
+    "fields": {
+      "name": "Array Merge Earth",
+      "description": "Merge two arrays of dune heights into a sorted array.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 4
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 33,
+    "fields": {
+      "name": "Earth Matrix Fill",
+      "description": "Flood-fill a matrix of earth to fill pits.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 5
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 34,
+    "fields": {
+      "name": "Terrain Generator",
+      "description": "Implement Perlin noise to generate rugged terrain.",
+      "region": 3,
+      "element_required": 3,
+      "level_required": 5
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 35,
+    "fields": {
+      "name": "Spark Burst",
+      "description": "Loop to cast 6 fire sparks.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 1
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 36,
+    "fields": {
+      "name": "Conditional Blaze",
+      "description": "If fuel > threshold, create an inferno; otherwise, cast a spark.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 1
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 37,
+    "fields": {
+      "name": "Flame Array",
+      "description": "Build an array of flames and find the largest one.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 2
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 38,
+    "fields": {
+      "name": "Nested Explosions",
+      "description": "Create nested loops to trigger several explosions in succession.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 2
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 39,
+    "fields": {
+      "name": "Recursive Inferno",
+      "description": "Write a recursive function to spread flames flood-like.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 3
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 40,
+    "fields": {
+      "name": "Fire Sort",
+      "description": "Implement heap sort on fire particles.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 3
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 41,
+    "fields": {
+      "name": "Blaze Path",
+      "description": "Discover the shortest route through the fire cave using Dijkstra.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 4
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 42,
+    "fields": {
+      "name": "Fire Merge",
+      "description": "Merge two arrays of flame intensities into a sorted array.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 4
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 43,
+    "fields": {
+      "name": "Volcano Simulation",
+      "description": "Flood-fill a lava matrix to simulate a flowing path.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 5
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 44,
+    "fields": {
+      "name": "Inferno Recursion",
+      "description": "Combine recursive calls to generate cascading explosions.",
+      "region": 4,
+      "element_required": 4,
+      "level_required": 5
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 45,
+    "fields": {
+      "name": "Citadel – Composite Patterns",
+      "description": "Combine loops and conditionals to activate three pillars in parallel.",
+      "region": 5,
+      "element_required": null,
+      "level_required": 1
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 46,
+    "fields": {
+      "name": "Citadel – Algorithm Gauntlet",
+      "description": "Write a recursive function that steps through an array of commands.",
+      "region": 5,
+      "element_required": null,
+      "level_required": 2
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 47,
+    "fields": {
+      "name": "Citadel – Element Fusion",
+      "description": "Nest loops to blend four elements under complex conditions.",
+      "region": 5,
+      "element_required": null,
+      "level_required": 3
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 48,
+    "fields": {
+      "name": "Citadel – Data Cascade",
+      "description": "Build and traverse a tree data structure to store elemental combos.",
+      "region": 5,
+      "element_required": null,
+      "level_required": 4
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 49,
+    "fields": {
+      "name": "Citadel – Mastery Final",
+      "description": "Solve a harmonized puzzle using loops, conditionals, and recursion to restore elemental balance.",
+      "region": 5,
+      "element_required": null,
+      "level_required": 5
+    }
+  },
+  {
+    "model": "game.trial",
+    "pk": 50,
+    "fields": {
+      "name": "Citadel – Ultimate Fusion",
+      "description": "Write an optimized composite algorithm to weight all four elements dynamically.",
+      "region": 5,
+      "element_required": null,
+      "level_required": 6
+    }
+  }
+]
