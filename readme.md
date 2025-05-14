@@ -29,26 +29,6 @@ A browser-based coding adventure built with **Django**, **Tailwind CSS**, and **
 
 ---
 
-## 🏗️ Project Structure
-
-```
-arcane-elemental-game/
-├── game/                   ← Django app  
-│   ├── migrations/         ← auto-generated  
-│   ├── models.py           ← PlayerProfile, Trial, Run, Quests…  
-│   ├── views.py            ← play, run_trial, hints, auth  
-│   ├── urls.py             ← app’s URL routes  
-│   ├── templates/game/     ← play.html, base.html, home.html…  
-│   └── static/             ← CSS, JS, images  
-├── game_project/           ← project settings  
-│   ├── settings.py  
-│   └── urls.py  
-├── manage.py  
-└── README.md
-```
-
----
-
 ## ⚙️ Getting Started
 
 1. **Clone & activate**
